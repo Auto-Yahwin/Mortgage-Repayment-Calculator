@@ -17,7 +17,7 @@ export default function Result(props){
                 </div>
             </div> :
             <div className="result-placeholder">
-                <img src="/images/illustration-empty.svg" alt="" />
+                <img src={`${import.meta.env.BASE_URL}/images/illustration-empty.svg`} alt="" />
                 <h3 style={{color: "hsl(0, 0%, 100%)"}}>Results shown here</h3>
                 <p>Complete the form and click "Calculate repayments" to see what your monthly repayment will be</p>
             </div>

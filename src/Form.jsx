@@ -2,7 +2,6 @@ import { useState } from "react";
 import Result from "./Result";
 
 export default function Form(){
-
     let errorMessage = "This field is required";
     const [errorState, setErrorState] = useState({
         amount: true,
@@ -12,9 +11,7 @@ export default function Form(){
     });
 
     const [show, setShow] = useState({});
-
     const [redIndicator, setRedIndicator] = useState({})
-
     const [amount, setAmount] = useState("");
     const [term, setTerm] = useState("");
     const [rate, setRate] = useState("");
@@ -45,7 +42,6 @@ export default function Form(){
             !value ? {...prevState, rate: true} : {...prevState, rate: false}
         ))
         setRate(value);
-        
     }
 
     let r = parseFloat(rate)/100/12
@@ -65,11 +61,9 @@ export default function Form(){
     function calcInterestOnly() {
         let repayment = p * r
         let totalRepayment = (repayment*n) + p;
-
         return {repayment, totalRepayment};
     }
 
-    
     function repaymentChecked(){
         setIsChecked1(true);
         setIsChecked2(false);
@@ -123,15 +117,7 @@ export default function Form(){
             display: "none"
         })
         setRedIndicator({})
-        /*amountChange({ target: { value: "" } });
-        termChange({ target: { value: "" } });
-        rateChange({ target: { value: "" } });*/
     }
-
-    //console.log("Repayment: " + repaymentMonthly);
-    //console.log("Total Repayment: " + repaymentTotal);
-    console.log(errorState);
-    
 
     return(
         <div className="main-container">
@@ -183,7 +169,7 @@ export default function Form(){
                     <h6 style={errorState.type ? show : null}>{errorMessage}</h6>
                 </div>
                 <button type="submit" onClick={calculate} >
-                    <img src="/images/icon-calculator.svg" alt="calculator icon" />
+                    <img src={`${import.meta.env.BASE_URL}/images/icon-calculator.svg`} alt="calculator icon" />
                     <h4>Calculate Repayments</h4>
                 </button>
             </form>

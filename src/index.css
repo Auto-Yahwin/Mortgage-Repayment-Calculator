@@ -69,10 +69,6 @@ body{
   cursor: pointer;
 }
 
-/*input{
-  border: none;
-}*/
-
 .amount{
   display: flex;
   border: 1px solid hsl(200, 24%, 40%);
@@ -185,10 +181,6 @@ body{
 .type>input{
   cursor: pointer;
 }
-
-/*input:focus{
-  border: none;
-}*/
 
 .amount:hover, .term:hover, .rate:hover{
   border: 2px solid hsl(202, 55%, 16%);
