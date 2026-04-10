@@ -12,6 +12,7 @@ export default function Form(){
 
     const [show, setShow] = useState({});
     const [redIndicator, setRedIndicator] = useState({})
+    const [redBorder, setRedBorder] = useState({})
     const [amount, setAmount] = useState("");
     const [term, setTerm] = useState("");
     const [rate, setRate] = useState("");
@@ -88,6 +89,8 @@ export default function Form(){
                 color: "hsl(0, 0%, 100%)"
             }
         )
+        setRedBorder({border: "1px solid hsl(4, 69%, 50%)"})
+
         if (!errorState.amount && !errorState.term && !errorState.rate && (isChecked1 || isChecked2)) {
             if (isChecked1) {
             setRepayment(calcRepayment().repayment);
@@ -117,6 +120,7 @@ export default function Form(){
             display: "none"
         })
         setRedIndicator({})
+        setRedBorder({})
     }
 
     return(
@@ -129,7 +133,7 @@ export default function Form(){
             <form action="">
                 <div className="amount-grp">
                     <p>Mortgage Amount</p>
-                    <span className="amount">
+                    <span className="amount" style={errorState.amount ? redBorder : null}>
                         <div className="euro" style={errorState.amount ? redIndicator : null}><h5>£</h5></div>
                         <input name="amount" id="amount" value={amount} onChange={amountChange} />
                     </span>
@@ -139,7 +143,7 @@ export default function Form(){
                 <div className="term-rate">
                     <div className="grp">
                         <p>Mortgage Term</p>
-                        <span className="term">
+                        <span className="term" style={errorState.term ? redBorder : null}>
                             <input name="term" value={term} id="" onChange={termChange} />
                             <div className="years" style={errorState.term ? redIndicator : null}><h5>years</h5></div>
                         </span>
@@ -148,7 +152,7 @@ export default function Form(){
 
                     <div className="grp">
                         <p>Interest rate</p>
-                        <span className="rate">
+                        <span className="rate" style={errorState.rate ? redBorder : null}>
                             <input name="rate" value={rate} id="" onChange={rateChange} />
                             <div className="percent" style={errorState.rate ? redIndicator : null}><h5>%</h5></div>
                         </span>

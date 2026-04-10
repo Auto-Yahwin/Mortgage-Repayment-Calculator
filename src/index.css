@@ -197,12 +197,11 @@ body{
 
 .type>input[type="radio"]:checked{
     accent-color: hsl(61, 70%, 52%);
-    border-color: aqua;
 }
 
 button{
   margin: 25px 0 10px 0;
-  padding: 10px 25px;
+  padding: 10px;
   background-color: hsl(61, 70%, 52%);
   border: none;
   border-radius: 20px;
@@ -211,6 +210,7 @@ button{
   gap: 5px;
   width: 65%;
   cursor: pointer;
+  justify-content: center;
 }
 
 .result-placeholder>p{
