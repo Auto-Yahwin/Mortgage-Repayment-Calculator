@@ -1,0 +1,418 @@
+@font-face {
+  font-family: PlusJakartaSans;
+  src: url(/fonts/PlusJakartaSans-VariableFont_wght.ttf);
+  font-weight: 500 700;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.main-container{
+  display: flex;
+  background-color: hsl(202, 86%, 94%);
+  max-height: 100vh;
+  padding: 100px;
+  font-family: PlusJakartaSans;
+}
+
+.form{
+  background-color: hsl(0, 0%, 100%);
+  width: 35%;
+  padding: 5px 75px 20px 30px;
+  margin-left: 125px;
+  margin-right: -50px;
+  border-radius: 15px 0 0 15px;
+}
+
+.result-placeholder{
+  background-color: hsl(202, 55%, 16%);
+  width: 35%;
+  padding: 40px 30px;
+  border-radius: 0 15px 15px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actual-result{
+  background-color: hsl(202, 55%, 16%);
+  width: 35%;
+  padding: 30px 30px 70px 30px;
+  border-radius: 0 15px 15px 50px;
+}
+
+.result-box{
+  background-color: hsl(202, 56%, 12%);
+  border-top: 3px solid hsl(61, 70%, 52%);
+  border-radius: 5px;
+  padding: 20px 30px;
+  margin-top: 30px;
+}
+
+.total-repayment{
+  border-top: 1px solid hsla(202, 86%, 94%, 0.2);
+  border-radius: 3px;
+  padding-top: 20px;
+}
+
+.first-liner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: hsl(202, 55%, 16%);
+}
+
+.first-liner>p{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/*input{
+  border: none;
+}*/
+
+.amount{
+  display: flex;
+  border: 1px solid hsl(200, 24%, 40%);
+  border-radius: 4px;
+}
+
+.amount:focus-within{
+  border: 2px solid hsl(200, 24%, 40%);
+}
+
+.amount>input{
+  width: 95%;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.amount-grp, .term-rate, .type-grp{
+  margin-bottom: 5px;
+}
+
+.euro{
+  background-color:hsl(202, 86%, 94%);
+  color: hsl(202, 55%, 16%);
+  border: none;
+  width: 4%;
+  padding: 8px 10px;
+}
+
+.years{
+  background-color:hsl(202, 86%, 94%);
+  width: 35%;
+  padding: 8px;
+  color: hsl(202, 55%, 16%);
+  text-align: center;
+  border: none;
+}
+
+.percent{
+  background-color:hsl(202, 86%, 94%);
+  width: 10%;
+  padding: 8px;
+  color: hsl(202, 55%, 16%);
+  border: none;
+}
+
+.term>input{
+  width: 65%;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.rate>input{
+  width: 90%;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.amount>input:focus, .term>input:focus, .rate>input:focus{
+  outline: none;
+  border: none;
+}
+
+.term-rate{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.term{
+  display: flex;
+  border: 1px solid hsl(200, 24%, 40%);
+  border-radius: 4px;
+}
+
+.term:focus-within{
+  border: 2px solid hsl(200, 24%, 40%);
+}
+
+.rate{
+  display: flex;
+  border: 1px solid hsl(200, 24%, 40%);
+  border-radius: 4px;
+}
+
+.rate:focus-within{
+  border: 2px solid hsl(200, 24%, 40%);
+}
+
+.type{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid hsl(200, 24%, 40%);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.type>input{
+  cursor: pointer;
+}
+
+/*input:focus{
+  border: none;
+}*/
+
+.amount:hover, .term:hover, .rate:hover{
+  border: 2px solid hsl(202, 55%, 16%);
+}
+
+.type:hover{
+  border: 1px solid hsl(61, 70%, 52%);
+}
+
+.type:has(input[type="radio"]:checked){
+  border: 2px solid hsla(61, 70%, 52%, 1);
+  background-color: hsla(61, 70%, 52%, 0.3);
+}
+
+.type>input[type="radio"]:checked{
+    accent-color: hsl(61, 70%, 52%);
+    border-color: aqua;
+}
+
+button{
+  margin: 25px 0 10px 0;
+  padding: 10px 25px;
+  background-color: hsl(61, 70%, 52%);
+  border: none;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 65%;
+  cursor: pointer;
+}
+
+.result-placeholder>p{
+  font-size: 16px;
+  color: hsl(200, 24%, 54%);
+  text-align: center;
+  margin-top: -10px;
+}
+
+.actual-result>p, .monthly-repayment>p, .total-repayment>p{
+  font-size: 16px;
+  color: hsl(200, 24%, 54%);
+  margin-top: 0;
+}
+
+.amount-grp>p, .grp>p, .type-grp>p{
+  font-size: 16px;
+  color: hsl(200, 24%, 40%);
+  margin-bottom: 7px;
+}
+
+.result-placeholder>img{
+  margin: 100px 0 -15px 0;
+  width: 35%;
+}
+
+h1{
+  color: hsl(61, 70%, 52%);
+  font-size: 50px;
+  margin: -10px 0 20px 0;
+}
+
+h3{
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.actual-result>h3{
+  color: white;
+  margin: 0 0 15px 0;
+}
+
+.total-repayment>h3{
+  margin: -10px 0 0 0;
+}
+
+h4{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+h5{
+  margin: 0px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+h6{
+  color: hsl(4, 69%, 50%);
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: none;
+}
+
+.first-liner>h5{
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.first-liner>h5:hover{
+  font-weight: 800;
+}
+
+
+
+@media(max-width:750px){
+  .main-container{
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .form{
+    padding: 0 30px;
+    width: 85%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .result-placeholder{
+    padding: 30px;
+    margin: 0;
+    width: 85%;
+    border-radius: 0;
+  }
+
+  .actual-result{
+    padding: 30px;
+    margin: 0;
+    width: 85%;
+    border-radius: 0;
+  }
+
+  .first-liner{
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .first-liner>h5{
+    margin: -20px 0 7px 0;
+  }
+
+  .euro{
+    width: 15px;
+    padding: 15px;
+  }
+
+  .years{
+    width: 25%;
+    padding: 10px 5px;
+  }
+
+  .percent{
+    width: 5%;
+    padding: 10px 20px;
+  }
+
+  .term-rate{
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .amount-grp{
+    margin-bottom: 0;
+  }
+
+  .grp>p{
+    margin-top: 25px;
+  }
+
+  .type-grp>p{
+    margin-top: 20px;
+  }
+
+  button{
+    width: 100%;
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+
+  .result-placeholder>img{
+    width: 60%;
+    margin: 5px 0 -5px 0;
+  }
+}
+
+
+
+@media (min-width: 750px) and (max-width: 1023px) {
+  .main-container{
+    padding: 15vh 20px 15vh 20px;
+    /*height: 100vh;*/
+  }
+
+  .form{
+    margin: 0;
+    padding: 20px 40px 20px 20px;
+    width: 50%;
+    /*height: 55%;*/
+  }
+
+  .result-placeholder, .actual-result{
+    width: 48%;
+    padding: 20px;
+    /*height: 55%;*/
+    margin-left: -25px;
+  }
+
+  .first-liner{
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 30px;
+  }
+
+  .first-liner>h3{
+    margin-bottom: 5px;
+  }
+
+  button{
+    width: 100%;
+    justify-content: center;
+  }
+}
