@@ -145,7 +145,7 @@ header>p:hover{
 }
 
 .amount:focus-within, .term:focus-within, .rate:focus-within{
-  border: 3px solid hsl(200, 24%, 40%);
+  border: 1px solid hsl(200, 24%, 40%);
 }
 
 .term-rate{
@@ -185,7 +185,7 @@ header>p:hover{
 }
 
 .amount:hover, .term:hover, .rate:hover{
-  border: 3px solid hsl(202, 55%, 16%);
+  border: 1px solid hsl(202, 55%, 16%);
 }
 
 .type:hover{
