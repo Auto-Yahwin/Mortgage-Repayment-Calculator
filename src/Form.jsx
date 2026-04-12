@@ -124,66 +124,66 @@ export default function Form(){
     }
 
     return(
-        <div className="main-container">
-            <div className="form">
-            <div className="first-liner">
-                <h3>Mortgage Calculator</h3>
-                <h5 onClick={clear}>Clear All</h5>
-            </div>
-            <form action="">
-                <div className="amount-grp">
-                    <p>Mortgage Amount</p>
+        <main role="main">
+            <form aria-label="form field" className="form">
+            <header aria-label="banner">
+                <h1>Mortgage Calculator</h1>
+                <p onClick={clear}>Clear All</p>
+            </header>
+            <form action="" aria-label="form">
+                <section aria-label="mortgage amount" className="amount-grp">
+                    <label htmlFor="amount">Mortgage Amount</label>
                     <span className="amount" style={errorState.amount ? redBorder : null}>
-                        <div className="euro" style={errorState.amount ? redIndicator : null}><h5>£</h5></div>
-                        <input name="amount" id="amount" value={amount} onChange={amountChange} />
+                        <span className="euro" style={errorState.amount ? redIndicator : null}><h5>£</h5></span>
+                        <input type="number" min="1" name="amount" id="amount" value={amount} onChange={amountChange} />
                     </span>
                     <h6 style={errorState.amount ? show : null}>{errorMessage}</h6>
-                </div>
+                </section>
 
-                <div className="term-rate">
-                    <div className="grp">
-                        <p>Mortgage Term</p>
+                <section aria-label="mortgage term" className="term-rate">
+                    <section aria-label="term input" className="grp">
+                        <label htmlFor="term">Mortgage Term</label>
                         <span className="term" style={errorState.term ? redBorder : null}>
-                            <input name="term" value={term} id="" onChange={termChange} />
-                            <div className="years" style={errorState.term ? redIndicator : null}><h5>years</h5></div>
+                            <input type="number" min="0" name="term" value={term} id="term" onChange={termChange} />
+                            <span className="years" style={errorState.term ? redIndicator : null}><h5>years</h5></span>
                         </span>
                         <h6 style={errorState.term ? show : null}>{errorMessage}</h6>
-                    </div>
+                    </section>
 
-                    <div className="grp">
-                        <p>Interest rate</p>
+                    <section aria-label="rate input" className="grp">
+                        <label htmlFor="rate">Interest rate</label>
                         <span className="rate" style={errorState.rate ? redBorder : null}>
-                            <input name="rate" value={rate} id="" onChange={rateChange} />
-                            <div className="percent" style={errorState.rate ? redIndicator : null}><h5>%</h5></div>
+                            <input type="number" min="0" name="rate" value={rate} id="rate" onChange={rateChange} />
+                            <span className="percent" style={errorState.rate ? redIndicator : null}><h5>%</h5></span>
                         </span>
                         <h6 style={errorState.rate ? show : null}>{errorMessage}</h6>
-                    </div>
-                </div>
+                    </section>
+                </section>
 
-                <div className="type-grp">
-                    <p>Mortgage Type</p>
-                    <div className="type" tabIndex="0" onClick={repaymentChecked}>
-                        <input type="radio" name="" id="" checked={isChecked1} onChange={repaymentChecked} />
-                        <label htmlFor="type"><h4>Repayment</h4></label>
-                    </div>
-                    <div className="type" tabIndex="0" onClick={interestOnlyChecked}>
-                        <input type="radio" name="" id="" checked={isChecked2} onChange={interestOnlyChecked} />
-                        <label htmlFor="type"><h4>Interest Only</h4></label>
-                    </div>
+                <fieldset aria-label="mortgage type" className="type-grp">
+                    <legend>Mortgage Type</legend>
+                    <section aria-label="repayment radio option" className="type" tabIndex="0" onClick={repaymentChecked}>
+                        <input type="radio" name="repayment-type" id="repayment-type" checked={isChecked1} onChange={repaymentChecked} />
+                        <label htmlFor="repayment-type"><h4>Repayment</h4></label>
+                    </section>
+                    <section aria-label="interest only radio option" className="type" tabIndex="0" onClick={interestOnlyChecked}>
+                        <input type="radio" name="interest-only-type" id="interest-only-type" checked={isChecked2} onChange={interestOnlyChecked} />
+                        <label htmlFor="interest-only-type"><h4>Interest Only</h4></label>
+                    </section>
                     <h6 style={errorState.type ? show : null}>{errorMessage}</h6>
-                </div>
+                </fieldset>
                 <button type="submit" onClick={calculate} >
                     <img src={`${import.meta.env.BASE_URL}/images/icon-calculator.svg`} alt="calculator icon" />
-                    <h4>Calculate Repayments</h4>
+                    Calculate Repayments
                 </button>
             </form>
-            </div>
+            </form>
             <Result
                 checkStatus={isChecked1 || isChecked2}
                 repayment={repayment}
                 totalRepayment={totalRepayment}
                 submitted={repayment ? true : false}
             />
-        </div>
+        </main>
     )
 }

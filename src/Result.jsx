@@ -1,8 +1,9 @@
 export default function Result(props){
 
+    const whiteColor = {color:" hsl(0, 0%, 100%)"}
     return(
         props.submitted ?
-            <div className="actual-result">
+            <section section aria-label="result section" className="actual-result">
                 <h3>Your results</h3>
                 <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click "Calculate repayments" again.</p>
                 <div className="result-box">
@@ -12,15 +13,15 @@ export default function Result(props){
                     </div>
                     <div className="total-repayment">
                         <p>Total you'll repay over the term</p>
-                        <h3 style={{color:" hsl(0, 0%, 100%)"}}>£{props.totalRepayment?.toFixed(2)}</h3>
+                        <h3 style={whiteColor}>£{props.totalRepayment?.toFixed(2)}</h3>
                     </div>
                 </div>
-            </div> :
-            <div className="result-placeholder">
-                <img src={`${import.meta.env.BASE_URL}/images/illustration-empty.svg`} alt="" />
-                <h3 style={{color: "hsl(0, 0%, 100%)"}}>Results shown here</h3>
+            </section> :
+            <section aria-label="form instruction section" className="result-placeholder">
+                <img src={`${import.meta.env.BASE_URL}/images/illustration-empty.svg`} alt="result placeholder image" />
+                <h3 style={whiteColor}>Results shown here</h3>
                 <p>Complete the form and click "Calculate repayments" to see what your monthly repayment will be</p>
-            </div>
+            </section>
     )
     
 }

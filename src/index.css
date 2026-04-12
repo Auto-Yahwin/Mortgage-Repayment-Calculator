@@ -9,12 +9,11 @@ body{
   padding: 0;
 }
 
-.main-container{
+main{
   display: flex;
   background-color: hsl(202, 86%, 94%);
-  max-height: 100vh;
   padding: 100px;
-  font-family: PlusJakartaSans;
+  font-family: PlusJakartaSans, Arial, sans-serif;
 }
 
 .form{
@@ -57,26 +56,29 @@ body{
   padding-top: 20px;
 }
 
-.first-liner{
+header{
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: hsl(202, 55%, 16%);
 }
 
-.first-liner>p{
+header>p{
   text-decoration: underline;
   cursor: pointer;
+  font-weight: 400;
+}
+
+header>p:hover{
+  font-weight: 700;
 }
 
 .amount{
   display: flex;
   border: 1px solid hsl(200, 24%, 40%);
   border-radius: 4px;
-}
-
-.amount:focus-within{
-  border: 2px solid hsl(200, 24%, 40%);
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
 
 .amount>input{
@@ -89,7 +91,9 @@ body{
 }
 
 .amount-grp, .term-rate, .type-grp{
-  margin-bottom: 5px;
+  margin: 5px 0 5px 0;
+  border: none;
+  padding: 0;
 }
 
 .euro{
@@ -140,6 +144,10 @@ body{
   border: none;
 }
 
+.amount:focus-within, .term:focus-within, .rate:focus-within{
+  border: 3px solid hsl(200, 24%, 40%);
+}
+
 .term-rate{
   display: flex;
   justify-content: space-between;
@@ -151,20 +159,14 @@ body{
   display: flex;
   border: 1px solid hsl(200, 24%, 40%);
   border-radius: 4px;
-}
-
-.term:focus-within{
-  border: 2px solid hsl(200, 24%, 40%);
+  margin-top: 10px;
 }
 
 .rate{
   display: flex;
   border: 1px solid hsl(200, 24%, 40%);
   border-radius: 4px;
-}
-
-.rate:focus-within{
-  border: 2px solid hsl(200, 24%, 40%);
+  margin-top: 10px;
 }
 
 .type{
@@ -178,19 +180,19 @@ body{
   cursor: pointer;
 }
 
-.type>input{
+.type>input, label>h4{
   cursor: pointer;
 }
 
 .amount:hover, .term:hover, .rate:hover{
-  border: 2px solid hsl(202, 55%, 16%);
+  border: 3px solid hsl(202, 55%, 16%);
 }
 
 .type:hover{
   border: 1px solid hsl(61, 70%, 52%);
 }
 
-.type:has(input[type="radio"]:checked){
+.type:has(:checked){
   border: 2px solid hsla(61, 70%, 52%, 1);
   background-color: hsla(61, 70%, 52%, 0.3);
 }
@@ -200,17 +202,23 @@ body{
 }
 
 button{
-  margin: 25px 0 10px 0;
+  margin: 10px 0 5px 0;
   padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
   background-color: hsl(61, 70%, 52%);
   border: none;
   border-radius: 20px;
   display: flex;
   align-items: center;
   gap: 5px;
-  width: 65%;
+  width: 55%;
   cursor: pointer;
   justify-content: center;
+}
+
+button:focus, button:hover{
+  opacity: 0.9;
 }
 
 .result-placeholder>p{
@@ -226,10 +234,16 @@ button{
   margin-top: 0;
 }
 
-.amount-grp>p, .grp>p, .type-grp>p{
+.amount-grp>label, .grp>label, .type-grp>label{
   font-size: 16px;
   color: hsl(200, 24%, 40%);
-  margin-bottom: 7px;
+  margin-bottom: 0;
+}
+
+legend{
+  font-size: 16px;
+  color: hsl(200, 24%, 40%);
+  margin: 25px 0 10px 0;
 }
 
 .result-placeholder>img{
@@ -237,13 +251,13 @@ button{
   width: 35%;
 }
 
-h1{
+.monthly-repayment>h1{
   color: hsl(61, 70%, 52%);
   font-size: 50px;
   margin: -10px 0 20px 0;
 }
 
-h3{
+header>h1{
   font-size: 27px;
   font-weight: 800;
 }
@@ -278,19 +292,9 @@ h6{
   display: none;
 }
 
-.first-liner>h5{
-  text-decoration: underline;
-  font-weight: 500;
-}
 
-.first-liner>h5:hover{
-  font-weight: 800;
-}
-
-
-
-@media(max-width:750px){
-  .main-container{
+@media(max-width: 46.875rem){
+  main{
     flex-direction: column;
     align-items: center;
     padding: 0;
@@ -318,13 +322,13 @@ h6{
     border-radius: 0;
   }
 
-  .first-liner{
+  header{
     flex-direction: column;
     align-items: start;
   }
 
-  .first-liner>h5{
-    margin: -20px 0 7px 0;
+  header>p{
+    margin: -15px 0 20px 0;
   }
 
   .euro{
@@ -347,16 +351,20 @@ h6{
     gap: 0;
   }
 
+  .amount, .term, .rate{
+    margin-bottom: 20px;
+  }
+
   .amount-grp{
     margin-bottom: 0;
   }
 
   .grp>p{
-    margin-top: 25px;
+    margin-top: 0;
   }
 
-  .type-grp>p{
-    margin-top: 20px;
+  .type-grp{
+    margin-top: -20px;
   }
 
   button{
@@ -373,8 +381,8 @@ h6{
 
 
 
-@media (min-width: 750px) and (max-width: 1023px) {
-  .main-container{
+@media (min-width: 46.875rem) and (max-width: 64rem) {
+  main{
     padding: 15vh 20px 15vh 20px;
     /*height: 100vh;*/
   }
@@ -393,14 +401,14 @@ h6{
     margin-left: -25px;
   }
 
-  .first-liner{
+  header{
     flex-direction: column;
     align-items: start;
     margin-bottom: 30px;
   }
 
-  .first-liner>h3{
-    margin-bottom: 5px;
+  header>p{
+    margin: -10px 0 2px 0;
   }
 
   button{
